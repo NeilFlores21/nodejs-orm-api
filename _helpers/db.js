@@ -21,6 +21,7 @@ const sequelize = new Sequelize(database, user, password, { dialect: 'mysql' });
 // init models add them to the exported db object
 db.User = require('../users/user.model')(sequelize);
 
+db.Product = require('../products/product.model')(sequelize);
 // sync all models with database
 await sequelize.sync({ alter: true });
 }

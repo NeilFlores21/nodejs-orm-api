@@ -8,12 +8,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
-// api routes
+// API routes
 app.use('/users', require('./users/user.controller'));
+app.use('/products', require('./products/product.controller')); // Include product routes
 
-// global error handler
+// Global error handler
 app.use(errorHandler);
 
-// start server
-const port = process.env.NODE_ENV === 'production' ? (process.env.PORT || 80): 4000;
+// Start server
+const port = process.env.NODE_ENV === 'production' ? (process.env.PORT || 80) : 4000;
 app.listen(port, () => console.log('Server listening on port ' + port));
